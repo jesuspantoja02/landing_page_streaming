@@ -1,0 +1,779 @@
+/* === 1. VARIABLES === */
+@primary: #e50914;
+@primary-dark: #b20710;
+
+@background: #080808;
+@background-light: #111111;
+@card-background: #171717;
+
+@text: #ffffff;
+@text-secondary: #b3b3b3;
+
+@border: #2a2a2a;
+@container-width: 1200px;
+
+@spacing-xs: 8px;
+@spacing-sm: 16px;
+@spacing-md: 24px;
+@spacing-lg: 48px;
+@spacing-xl: 80px;
+
+@radius-sm: 6px;
+@radius-md: 12px;
+@radius-lg: 20px;
+
+/* === 2. MIXINS === */
+.container-mixin() {
+    width: 90%;
+    max-width: @container-width;
+    margin: 0 auto;
+}
+
+.flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transition(@prop: all, @time: 0.3s, @ease: ease) {
+    transition: @prop @time @ease;
+}
+
+.card-hover() {
+    .transition(transform);
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: #444;
+    }
+}
+
+/* === 3. RESET Y BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: @background;
+    color: @text;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    .container-mixin();
+}
+
+.section {
+    padding: @spacing-xl 0;
+}
+
+
+/* === 4. HEADER Y NAVEGACIÓN === */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 8, 8, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid @border;
+}
+
+.navbar {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: @spacing-md;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    span:not(.logo-icon) {
+        color: @primary;
+    }
+
+    .logo-icon {
+        width: 30px;
+        height: 30px;
+        .flex-center();
+        background: @primary;
+        border-radius: 7px;
+        color: #ffffff;
+        font-size: 13px;
+        padding-left: 2px;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: @spacing-lg;
+
+    a {
+        color: @text-secondary;
+        font-size: 14px;
+        .transition(color);
+
+        &:hover {
+            color: @text;
+        }
+    }
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: @text;
+        border-radius: 2px;
+        .transition();
+    }
+}
+
+/* === 5. BOTONES === */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: @radius-sm;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    .transition();
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &-primary {
+        background: @primary;
+        color: @text;
+
+        &:hover {
+            background: @primary-dark;
+        }
+    }
+
+    &-secondary {
+        background: transparent;
+        border-color: #555;
+        color: @text;
+
+        &:hover {
+            border-color: @text;
+            background: #222;
+        }
+    }
+
+    &-outline {
+        border-color: @border;
+        background: transparent;
+
+        &:hover {
+            border-color: @primary;
+            color: @primary;
+        }
+    }
+}
+
+/* === 6. HERO === */
+.hero {
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 80% 40%, rgba(229, 9, 20, 0.18), transparent 40%);
+    border-bottom: 1px solid @border;
+
+    &-content {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: @spacing-xl;
+        width: 100%;
+    }
+
+    &-text {
+        max-width: 650px;
+
+        >p {
+            max-width: 560px;
+            color: @text-secondary;
+            font-size: 18px;
+            margin-bottom: @spacing-lg;
+        }
+    }
+
+    &-tag {
+        display: inline-block;
+        margin-bottom: @spacing-md;
+        color: @primary;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    h1 {
+        font-size: clamp(38px, 5vw, 68px);
+        line-height: 1.1;
+        margin-bottom: @spacing-md;
+
+        span {
+            color: @primary;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: @spacing-sm;
+    }
+
+    &-info {
+        display: flex;
+        gap: @spacing-lg;
+        margin-top: @spacing-lg;
+        padding-top: @spacing-lg;
+        border-top: 1px solid @border;
+
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        strong {
+            font-size: 22px;
+        }
+
+        span {
+            color: @text-secondary;
+            font-size: 12px;
+        }
+    }
+}
+
+/* TARJETA HERO REAJUSTADA */
+.hero-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: @card-background;
+    border: 1px solid @border;
+    border-radius: @radius-lg;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    max-width: 440px;
+    justify-self: center;
+    .card-hover();
+
+    &-image {
+        width: 100%;
+        position: relative;
+        background: #111;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 520px;
+            object-fit: contain;
+            display: block;
+        }
+    }
+
+    &-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: @spacing-md;
+        gap: @spacing-sm;
+        background: @card-background;
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+
+        span {
+            color: @primary;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            margin: 2px 0;
+            font-size: 20px;
+            color: @text;
+        }
+
+        p {
+            color: @text-secondary;
+            font-size: 13px;
+        }
+    }
+
+    .play-button {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        .flex-center();
+        border-radius: 50%;
+        background: @primary;
+        color: @text;
+        font-size: 18px;
+        padding-left: 3px;
+        border: none;
+        box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+        cursor: pointer;
+        .transition();
+
+        &:hover {
+            transform: scale(1.1);
+            background: @primary-dark;
+        }
+    }
+}
+
+/* =====================================================
+   7. TÍTULOS DE SECCIÓN
+===================================================== */
+.section-title {
+    max-width: 700px;
+    margin: 0 auto @spacing-lg;
+    text-align: center;
+
+    span {
+        color: @primary;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        margin: 8px 0;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.15;
+    }
+
+    p {
+        color: @text-secondary;
+    }
+}
+
+/* === 7. TÍTULOS DE SECCIÓN === */
+.section-title {
+    max-width: 700px;
+    margin: 0 auto @spacing-lg;
+    text-align: center;
+
+    span {
+        color: @primary;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        margin: 8px 0;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.15;
+    }
+
+    p {
+        color: @text-secondary;
+    }
+}
+
+/* === 8. BENEFICIOS === */
+.benefits {
+    background: @background-light;
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: @spacing-md;
+    }
+}
+
+.benefit-card {
+    padding: @spacing-lg;
+    background: @card-background;
+    border: 1px solid @border;
+    border-radius: @radius-md;
+    .card-hover();
+
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+        .flex-center();
+        margin-bottom: @spacing-md;
+        border-radius: @radius-sm;
+        background: rgba(229, 9, 20, 0.12);
+        font-size: 24px;
+    }
+
+    h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+    }
+
+    p {
+        color: @text-secondary;
+        font-size: 14px;
+    }
+}
+
+/* === 9. CONTENIDO / PELÍCULAS === */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: @spacing-md;
+}
+
+.movie-card {
+    min-height: 360px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    border-radius: @radius-md;
+    border: 1px solid @border;
+    .card-hover();
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        .transition(transform);
+    }
+
+    &:hover img {
+        transform: scale(1.08);
+    }
+
+    .movie-overlay {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        padding: @spacing-md;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+
+        span {
+            color: @primary;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+}
+
+/* === 10. PLANES === */
+.plans {
+    background: @background-light;
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: @spacing-md;
+        align-items: stretch;
+    }
+}
+
+.plan-card {
+    position: relative;
+    padding: @spacing-lg;
+    background: @card-background;
+    border: 1px solid @border;
+    border-radius: @radius-md;
+    display: flex;
+    flex-direction: column;
+    .card-hover();
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .plan-description {
+        min-height: 44px;
+        color: @text-secondary;
+        font-size: 14px;
+    }
+
+    .price {
+        margin: @spacing-md 0;
+
+        strong {
+            font-size: 32px;
+        }
+
+        span {
+            color: @text-secondary;
+        }
+    }
+
+    ul {
+        margin-bottom: @spacing-lg;
+        flex-grow: 1;
+
+        li {
+            padding: 7px 0;
+            color: @text-secondary;
+            font-size: 14px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    &.plan-featured {
+        border-color: @primary;
+        transform: translateY(-8px);
+
+        &:hover {
+            transform: translateY(-14px);
+        }
+    }
+}
+
+.popular {
+    position: absolute;
+    top: -13px;
+    right: 20px;
+    padding: 5px 12px;
+    background: @primary;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* === 11. CTA === */
+.cta {
+    padding: @spacing-xl 0;
+    background: linear-gradient(120deg, #260608, @background);
+
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: @spacing-lg;
+
+        span {
+            color: @primary;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            margin: 5px 0;
+            font-size: clamp(26px, 4vw, 40px);
+        }
+
+        p {
+            color: @text-secondary;
+        }
+    }
+}
+
+/* === 12. FOOTER === */
+.footer {
+    padding: @spacing-lg 0;
+    background: #050505;
+    border-top: 1px solid @border;
+
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: @spacing-md;
+
+        p {
+            color: @text-secondary;
+            font-size: 12px;
+        }
+    }
+
+    &-links {
+        display: flex;
+        gap: @spacing-md;
+
+        a {
+            color: @text-secondary;
+            font-size: 12px;
+            .transition(color);
+
+            &:hover {
+                color: @text;
+            }
+        }
+    }
+}
+
+/* === 13. MEDIA QUERIES (RESPONSIVE) === */
+@media (max-width: 900px) {
+    .nav {
+        gap: @spacing-md;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        padding-top: @spacing-md;
+        padding-bottom: @spacing-md;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+
+        >p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .hero-buttons,
+    .hero-info {
+        justify-content: center;
+    }
+
+    .hero-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .benefits-grid,
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .plan-card.plan-featured {
+        transform: none;
+
+        &:hover {
+            transform: translateY(-6px);
+        }
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        padding: 50px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .btn-login {
+        display: none;
+    }
+
+    .hero {
+        padding: 40px 0;
+
+        h1 {
+            font-size: 36px;
+        }
+
+        &-text>p {
+            font-size: 15px;
+        }
+
+        &-buttons {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        &-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+
+            div {
+                text-align: center;
+            }
+        }
+    }
+
+    .benefits-grid,
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content {
+        flex-direction: column;
+        text-align: center;
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

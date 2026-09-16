@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantojaFlix - Tu cine en casa, películas y series online</title>
+
+    <!-- Favicon (Icono de pestaña de cine) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+
+    <!-- CSS compilado desde LESS -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <!-- === HEADER === -->
+    <header class="header">
+        <div class="container navbar">
+
+            <!-- LOGO -->
+            <a href="#inicio" class="logo" aria-label="PantojaFlix Inicio">
+                <span class="logo-icon" aria-hidden="true">▶</span>
+                PANTOJA<span>FLIX</span>
+            </a>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVEGACIÓN -->
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#contenido">Catálogo</a>
+                <a href="#planes">Planes</a>
+            </nav>
+
+            <!-- LOGIN -->
+            <a href="#planes" class="btn btn-outline btn-login">
+                Iniciar sesión
+            </a>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- === HERO === -->
+
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+
+                <!-- TEXTO -->
+                <div class="hero-text">
+                    <span class="hero-tag">🍿 TU SALA DE CINE EN CASA</span>
+
+                    <h1>Vive la experiencia del cine <span>donde quieras.</span></h1>
+
+                    <p>
+                        PantojaFlix te trae el mejor cine digital: miles de películas de cartelera, series aclamadas y
+                        estrenos exclusivos directamente a tu pantalla.
+                    </p>
+
+                    <!-- BOTONES -->
+                    <div class="hero-buttons">
+                        <a href="#planes" class="btn btn-primary">Ver películas ahora</a>
+                        <a href="#contenido" class="btn btn-secondary">Explorar catálogo</a>
+                    </div>
+
+                    <!-- ESTADÍSTICAS -->
+                    <div class="hero-info">
+                        <div>
+                            <strong>+10K</strong>
+                            <span>Películas y series</span>
+                        </div>
+                        <div>
+                            <strong>4K Ultra HD</strong>
+                            <span>Calidad de cine</span>
+                        </div>
+                        <div>
+                            <strong>24/7</strong>
+                            <span>Streaming ilimitado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRINCIPAL -->
+                <div class="hero-card">
+                    <div class="hero-card-image">
+                        <img src="assets/hero.png" alt="Experiencia de cine en casa">
+                    </div>
+                    <div class="hero-card-info">
+                        <div class="hero-card-text">
+                            <span>PANTOJAFLIX ORIGINAL</span>
+                            <h3>Stranger Things</h3>
+                            <p>Temporada 5 · Gran Estreno</p>
+                        </div>
+                        <button class="play-button" aria-label="Reproducir película">
+                            ▶
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             BENEFICIOS
+        =========================================== -->
+        <section id="beneficios" class="benefits section">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>¿POR QUÉ PANTOJAFLIX?</span>
+                    <h2>La mejor experiencia de cine digital</h2>
+                    <p>Disfruta de tus películas preferidas con la más alta calidad y sin interrupciones.</p>
+                </div>
+
+                <div class="benefits-grid">
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">🎬</div>
+                        <h3>Estrenos de cartelera</h3>
+                        <p>Accede a los últimos lanzamientos del cine, documentales y producciones originales.</p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">📺</div>
+                        <h3>Multiplataforma</h3>
+                        <p>Mira PantojaFlix desde tu Smart TV, computadora, tablet o teléfono móvil.</p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">⚡</div>
+                        <h3>Sin interrupciones</h3>
+                        <p>Reproducción al instante sin anuncios molestos y en resolución HD / 4K.</p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="benefit-icon" aria-hidden="true">🍿</div>
+                        <h3>Modo Cine Familiar</h3>
+                        <p>Crea perfiles personalizados para toda la familia con control parental incluido.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CONTENIDO
+        =========================================== -->
+        <section id="contenido" class="content-section section">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>CATÁLOGO DESTACADO</span>
+                    <h2>Siempre hay una gran historia que ver</h2>
+                    <p>Las películas y series más populares listas para reproducir.</p>
+                </div>
+
+                <div class="content-grid">
+
+                    <article class="movie-card">
+                        <img src="assets/pelicula1.png" alt="Película Horizonte" loading="lazy">
+                        <div class="movie-overlay">
+                            <span>PELÍCULA</span>
+                            <h3>Horizonte</h3>
+                        </div>
+                    </article>
+
+                    <article class="movie-card">
+                        <img src="assets/pelicula2.png" alt="Serie Distrito 9" loading="lazy">
+                        <div class="movie-overlay">
+                            <span>SERIE</span>
+                            <h3>Distrito 9</h3>
+                        </div>
+                    </article>
+
+                    <article class="movie-card">
+                        <img src="assets/pelicula3.png" alt="Película El último viaje" loading="lazy">
+                        <div class="movie-overlay">
+                            <span>PANTOJAFLIX ORIGINAL</span>
+                            <h3>El último viaje</h3>
+                        </div>
+                    </article>
+
+                    <article class="movie-card">
+                        <img src="assets/pelicula4.png" alt="Documental Planeta Tierra" loading="lazy">
+                        <div class="movie-overlay">
+                            <span>DOCUMENTAL</span>
+                            <h3>Planeta Tierra</h3>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PLANES
+        =========================================== -->
+        <section id="planes" class="plans section">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>ELIGE TU SUBSCRIPCIÓN</span>
+                    <h2>Planes para amantes del cine</h2>
+                    <p>Suscríbete hoy y empieza a disfrutar de PantojaFlix sin compromisos.</p>
+                </div>
+
+                <div class="plans-grid">
+
+                    <!-- PLAN BÁSICO -->
+                    <article class="plan-card">
+                        <h3>Cine Básico</h3>
+                        <p class="plan-description">Para disfrutar en tu pantalla favorita.</p>
+
+                        <div class="price">
+                            <strong>S/ 19.90</strong>
+                            <span>/mes</span>
+                        </div>
+
+                        <ul>
+                            <li>✓ Calidad Full HD</li>
+                            <li>✓ 1 pantalla simultánea</li>
+                            <li>✓ Catálogo de películas completo</li>
+                            <li>✓ Cancela cuando quieras</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-secondary">Elegir plan</a>
+                    </article>
+
+                    <!-- PLAN PREMIUM -->
+                    <article class="plan-card plan-featured">
+                        <div class="popular">MÁS POPULAR</div>
+
+                        <h3>Cine Premium 4K</h3>
+                        <p class="plan-description">La mejor experiencia visual y sonora.</p>
+
+                        <div class="price">
+                            <strong>S/ 34.90</strong>
+                            <span>/mes</span>
+                        </div>
+
+                        <ul>
+                            <li>✓ Calidad 4K Ultra HD + HDR</li>
+                            <li>✓ Hasta 4 pantallas en simultáneo</li>
+                            <li>✓ Descargas para ver offline</li>
+                            <li>✓ Sonido envolvente Dolby Atmos</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-primary">Probar Premium</a>
+                    </article>
+
+                    <!-- PLAN FAMILIAR -->
+                    <article class="plan-card">
+                        <h3>Cine Familiar</h3>
+                        <p class="plan-description">Entretenimiento ilimitado para todos.</p>
+
+                        <div class="price">
+                            <strong>S/ 44.90</strong>
+                            <span>/mes</span>
+                        </div>
+
+                        <ul>
+                            <li>✓ Calidad 4K Ultra HD</li>
+                            <li>✓ Hasta 6 dispositivos</li>
+                            <li>✓ Perfiles infantiles protegidos</li>
+                            <li>✓ Control parental avanzado</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-secondary">Elegir plan</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CTA
+        =========================================== -->
+        <section class="cta">
+            <div class="container cta-content">
+                <div>
+                    <span>¿LISTO PARA TU MARATÓN DE PELÍCULAS?</span>
+                    <h2>Tu próxima película favorita te espera en PantojaFlix.</h2>
+                    <p>Disfruta del mejor entretenimiento en la comodidad de tu hogar.</p>
+                </div>
+                <a href="#planes" class="btn btn-primary">Ver planes de cine</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <a href="#inicio" class="logo" aria-label="PantojaFlix Inicio">
+                    <span class="logo-icon" aria-hidden="true">▶</span>
+                    PANTOJA<span>FLIX</span>
+                </a>
+                <p>El mejor cine en casa sin límites.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Términos de servicio</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Centro de ayuda</a>
+            </div>
+
+            <p class="copyright">© 2026 PantojaFlix. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
